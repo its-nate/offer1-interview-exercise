@@ -1,9 +1,15 @@
-import React from "react";
+// import React from "react";
 import { useParams } from 'react-router-dom';
+import DetailCard from '../../components/DetailCard';
 
-const ListingDetail = () => {
+const ListingDetail = (props) => {
   let { id } = useParams();
-  return <h1>{id}</h1>;
+  let listing = props.getListing(id);
+  console.log(listing);
+  
+  return (
+    <DetailCard listing={listing} />
+  )
 };
 
 export default ListingDetail;

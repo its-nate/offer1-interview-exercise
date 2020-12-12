@@ -1,10 +1,9 @@
-import { Link, useRouteMatch } from "react-router-dom";
-import currencyFormatter from '../../utils/currencyFormatter';
+import { Link } from "react-router-dom";
+import currencyFormatter from "../../utils/currencyFormatter";
 
 const formatter = currencyFormatter.format();
 
-const ListingCard = (props) => {
-  let { url} = useRouteMatch();
+const DetailCard = (props) => {
 
   return (
     <div className="card" style={{ width: "18rem;" }}>
@@ -27,10 +26,10 @@ const ListingCard = (props) => {
         </p>
         <p className="card-text">{props.listing.property.description}</p>
         <p className="card-text">{props.listing.state}</p>
-        <Link to={`${url}/${props.listing.id}`}>Details</Link>
+        <Link to={'/listings'}>Back to listings</Link>
       </div>
     </div>
   );
 };
 
-export default ListingCard;
+export default DetailCard;

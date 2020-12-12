@@ -20,6 +20,10 @@ class App extends React.Component {
     });
   };
 
+  getListing = (id) => {
+    return this.state.listings[id - 1];
+  }
+
   componentDidMount() {
     this.getListings();
   }
@@ -35,7 +39,7 @@ class App extends React.Component {
             <AllListings listings={this.state.listings} />
           </Route>
           <Route path="/listings/:id">
-            <ListingDetail />
+            <ListingDetail getListing={this.getListing} />
           </Route>
         </Switch>
       </Router>
