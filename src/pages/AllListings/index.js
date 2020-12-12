@@ -7,12 +7,23 @@ class AllListings extends React.Component {
     this.state = {
       bedrooms: "",
       price: "",
-      location: ""
+      location: "",
+      filteredListings: [],
     };
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value});
+    this.setState({ [event.target.id]: event.target.value }, this.filter);
+  }
+
+  filter() {
+    let acc = [];
+    this.props.listings.map((listing) => {
+      if (listing.property.numberBedrooms >= parseInt(this.state.bedrooms)) {
+        acc.push(listing);
+      }
+    });
+    this.setState({ filteredListings: acc });
   }
 
   render() {
@@ -22,20 +33,13 @@ class AllListings extends React.Component {
           <label for="bedrooms" class="form-label">
             Bedrooms
           </label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            onChange={(event) => this.handleChange(event)}
+          <input
+            type="text"
+            class="form-control"
             id="bedrooms"
-          >
-            <option value="0" selected>
-              0
-            </option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-          </select>
+            onChange={(event) => this.handleChange(event)}
+            value={this.state.bedrooms}
+          />
           <label for="price" class="form-label">
             Price
           </label>
@@ -45,7 +49,9 @@ class AllListings extends React.Component {
             onChange={(event) => this.handleChange(event)}
             id="price"
           >
-            <option value="0" selected>0</option>
+            <option value="0" selected>
+              0
+            </option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -60,15 +66,17 @@ class AllListings extends React.Component {
             onChange={(event) => this.handleChange(event)}
             id="location"
           >
-            <option value="0" selected>0</option>
+            <option value="0" selected>
+              0
+            </option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
             <option value="4">Four</option>
           </select>
         </form>
-        
-        {this.props.listings.map((i) => {
+
+        {this.state.filteredListings.map((i) => {
           return (
             <div className="col-4">
               <ListingCard key={i.id} listing={i} />

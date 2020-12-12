@@ -22,10 +22,9 @@ const ListingCard = (props) => {
           {props.listing.property.address.state}{" "}
           {props.listing.property.address.zip}
         </h5>
-        <p className="card-text">
-          {formatter.format(props.listing.price)}
-        </p>
+        <p className="card-text">{formatter.format(props.listing.price)}</p>
         <p className="card-text">{props.listing.property.description}</p>
+        <p className="card-text">{props.listing.property.numberBedrooms}</p>
         <p className="card-text">{props.listing.state}</p>
         <Link to={`${url}/${props.listing.id}`}>Details</Link>
       </div>
