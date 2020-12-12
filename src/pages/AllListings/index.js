@@ -5,12 +5,16 @@ class AllListings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bedrooms: "",
-      priceLow: "",
-      priceHigh: "",
-      location: "",
+      bedrooms: null,
+      priceLow: null,
+      priceHigh: null,
+      location: null,
       filteredListings: [],
     };
+  }
+
+  componentDidMount() {
+      setTimeout(() => this.filter(), 100)
   }
 
   handleChange(event) {
@@ -18,20 +22,21 @@ class AllListings extends React.Component {
   }
 
   filter() {
-    let { bedrooms, priceLow, priceHigh } = this.state;
+    let { bedrooms, priceLow, priceHigh, location } = this.state;
     let filtered = [];
 
     this.props.listings.map((listing) => {
-      if (
-        listing.property.numberBedrooms >= bedrooms &&
-        (priceLow
-          ? listing.price >= priceLow
-          : true) &&
-        (priceHigh
-          ? listing.price <= priceHigh
-          : true)
-      ) {
-        filtered.push(listing);
+      if (bedrooms || priceLow || priceHigh || location) {
+        if (
+          (bedrooms ? listing.property.numberBedrooms >= bedrooms : true) &&
+          (priceLow ? listing.price >= priceLow : true) &&
+          (priceHigh ? listing.price <= priceHigh : true) &&
+          (location ? listing.property.address.city === location : true)
+        ) {
+          filtered.push(listing);
+        }
+      } else {
+          filtered.push(listing);
       }
     });
 
@@ -75,20 +80,13 @@ class AllListings extends React.Component {
           <label for="location" class="form-label">
             Location
           </label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            onChange={(event) => this.handleChange(event)}
+          <input
+            type="text"
+            class="form-control"
             id="location"
-          >
-            <option value="0" selected>
-              0
-            </option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-          </select>
+            onChange={(event) => this.handleChange(event)}
+            value={this.state.location}
+          />
         </form>
 
         {this.state.filteredListings.map((i) => {
