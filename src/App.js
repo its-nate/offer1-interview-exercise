@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './pages/Home';
+import Home from "./pages/Home";
 import AllListings from "./pages/AllListings";
 import ListingDetail from "./pages/ListingDetail";
 import "./App.css";
@@ -9,7 +9,9 @@ let API = require("./utils/API");
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { listings: [] };
+    this.state = {
+      listings: []
+    };
   }
 
   getListings = () => {
@@ -22,7 +24,7 @@ class App extends React.Component {
 
   getListing = (id) => {
     return this.state.listings[id - 1];
-  }
+  };
 
   componentDidMount() {
     this.getListings();
