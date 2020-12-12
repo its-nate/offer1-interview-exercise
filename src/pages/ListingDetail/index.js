@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
 
 const ListingDetail = () => {
-  return <h1>listing detail</h1>;
+  let { id } = useParams();
+  return <h1>{id}</h1>;
 };
 
 export default ListingDetail;

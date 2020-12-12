@@ -1,31 +1,19 @@
-import React from "react";
-let API = require("../../utils/API");
+import React from 'react';
+import ListingCard from '../../components/ListingCard'
 
 class AllListings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { listings: [] };
-  }
-
-  getListings = () => {
-    API.listings().then(res => {
-      this.setState({
-        listings: res,
-      })
-    });
-  };
-
-  componentDidMount() {
-    this.getListings();
-  }
 
   render() {
     return (
-        <div>{this.state.listings.map(i => {
-            return(
-            <h1>{i.property.description}</h1>
-            )
-        })}</div>
+      <div className="row">
+        {this.props.listings.map((i) => {
+          return (
+            <div className="col-4">
+                <ListingCard key={i.id} listing={i}/>
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }
