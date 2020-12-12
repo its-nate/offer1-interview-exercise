@@ -6,7 +6,8 @@ class AllListings extends React.Component {
     super(props);
     this.state = {
       bedrooms: "",
-      price: "",
+      priceLow: "",
+      priceHigh: "",
       location: "",
       filteredListings: [],
     };
@@ -17,13 +18,24 @@ class AllListings extends React.Component {
   }
 
   filter() {
-    let acc = [];
+    let { bedrooms, priceLow, priceHigh } = this.state;
+    let filtered = [];
+
     this.props.listings.map((listing) => {
-      if (listing.property.numberBedrooms >= parseInt(this.state.bedrooms)) {
-        acc.push(listing);
+      if (
+        listing.property.numberBedrooms >= bedrooms &&
+        (priceLow
+          ? listing.price >= priceLow
+          : true) &&
+        (priceHigh
+          ? listing.price <= priceHigh
+          : true)
+      ) {
+        filtered.push(listing);
       }
     });
-    this.setState({ filteredListings: acc });
+
+    this.setState({ filteredListings: filtered });
   }
 
   render() {
@@ -40,23 +52,26 @@ class AllListings extends React.Component {
             onChange={(event) => this.handleChange(event)}
             value={this.state.bedrooms}
           />
-          <label for="price" class="form-label">
-            Price
+          <label for="priceLow" class="form-label">
+            Price Low
           </label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
+          <input
+            type="text"
+            class="form-control"
+            id="priceLow"
             onChange={(event) => this.handleChange(event)}
-            id="price"
-          >
-            <option value="0" selected>
-              0
-            </option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-          </select>
+            value={this.state.priceLow}
+          />
+          <label for="priceHigh" class="form-label">
+            Price High
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="priceHigh"
+            onChange={(event) => this.handleChange(event)}
+            value={this.state.priceHigh}
+          />
           <label for="location" class="form-label">
             Location
           </label>
