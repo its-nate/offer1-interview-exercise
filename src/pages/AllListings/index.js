@@ -1,5 +1,6 @@
 import React from "react";
 import ListingCard from "../../components/ListingCard";
+import { listings } from "../../utils/API";
 
 class AllListings extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class AllListings extends React.Component {
   }
 
   componentDidMount() {
-      setTimeout(() => this.filter(), 100)
+    setTimeout(() => this.filter(), 100);
   }
 
   handleChange(event) {
@@ -22,23 +23,24 @@ class AllListings extends React.Component {
   }
 
   filter() {
+    let listings = this.props.listings;
     let { bedrooms, priceLow, priceHigh, location } = this.state;
     let filtered = [];
 
-    this.props.listings.map((listing) => {
+    for (let i = 0; i < listings.length; i++) {
       if (bedrooms || priceLow || priceHigh || location) {
         if (
-          (bedrooms ? listing.property.numberBedrooms >= bedrooms : true) &&
-          (priceLow ? listing.price >= priceLow : true) &&
-          (priceHigh ? listing.price <= priceHigh : true) &&
-          (location ? listing.property.address.city === location : true)
+          (bedrooms ? listings[i].property.numberBedrooms >= bedrooms : true) &&
+          (priceLow ? listings[i].price >= priceLow : true) &&
+          (priceHigh ? listings[i].price <= priceHigh : true) &&
+          (location ? listings[i].property.address.city === location : true)
         ) {
-          filtered.push(listing);
+          filtered.push(listings[i]);
         }
       } else {
-          filtered.push(listing);
+        filtered.push(listings[i]);
       }
-    });
+    }
 
     this.setState({ filteredListings: filtered });
   }
