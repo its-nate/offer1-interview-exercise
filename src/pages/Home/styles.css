@@ -1,0 +1,7 @@
+.home-row {
+    height: 75vh;
+}
+
+.home-row > div > a > button {
+    width: 500px;
+}

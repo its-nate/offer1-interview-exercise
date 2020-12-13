@@ -38,7 +38,7 @@ const ListingCard = (props) => {
             </p>
           </div>
           <p className="card-text lc-address">
-            {props.listing.property.address.addressLine1}{" "}
+            {props.listing.property.address.addressLine1}, 
             {props.listing.property.address.city},{" "}
             {props.listing.property.address.state}{" "}
             {props.listing.property.address.zip}

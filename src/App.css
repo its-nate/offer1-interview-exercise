@@ -1,3 +1,14 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
+.btn {
+    background-color: #12aaeb;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    color: #fff;
+}
