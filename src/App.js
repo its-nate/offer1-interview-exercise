@@ -23,7 +23,11 @@ class App extends React.Component {
   };
 
   getListing = (id) => {
-    return this.state.listings[id - 1];
+    for (let i = 0; i < this.state.listings; i++) {
+      if (this.state.listings[i].id === id) {
+        return this.state.listings[i].id;
+      }
+    }
   };
 
   componentDidMount() {
