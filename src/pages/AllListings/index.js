@@ -1,6 +1,7 @@
 import React from "react";
 import ListingCard from "../../components/ListingCard";
-import { listings } from "../../utils/API";
+import Header from "../../components/Header";
+import "./styles.css";
 
 class AllListings extends React.Component {
   constructor(props) {
@@ -47,58 +48,76 @@ class AllListings extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <form>
-          <label for="bedrooms" class="form-label">
-            Bedrooms
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="bedrooms"
-            onChange={(event) => this.handleChange(event)}
-            value={this.state.bedrooms}
-          />
-          <label for="priceLow" class="form-label">
-            Price Low
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="priceLow"
-            onChange={(event) => this.handleChange(event)}
-            value={this.state.priceLow}
-          />
-          <label for="priceHigh" class="form-label">
-            Price High
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="priceHigh"
-            onChange={(event) => this.handleChange(event)}
-            value={this.state.priceHigh}
-          />
-          <label for="location" class="form-label">
-            Location
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="location"
-            onChange={(event) => this.handleChange(event)}
-            value={this.state.location}
-          />
-        </form>
-
-        {this.state.filteredListings.map((i) => {
-          return (
-            <div className="col-4">
-              <ListingCard key={i.id} listing={i} />
-            </div>
-          );
-        })}
-      </div>
+      <>
+        <Header />
+        <div className="container">
+          <div className="row my-5">
+            <form>
+              <div className="col-3 d-inline-block px-3">
+                <label for="bedrooms" class="form-label">
+                  Bedrooms (Minimum)
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bedrooms"
+                  onChange={(event) => this.handleChange(event)}
+                  value={this.state.bedrooms}
+                  placeholder="0"
+                />
+              </div>
+              <div className="col-3 d-inline-block px-3">
+                <label for="priceLow" class="form-label">
+                  Min Price
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="priceLow"
+                  onChange={(event) => this.handleChange(event)}
+                  value={this.state.priceLow}
+                  placeholder="$50,000"
+                />
+              </div>
+              <div className="col-3 d-inline-block px-3">
+                <label for="priceHigh" class="form-label">
+                  Max Price
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="priceHigh"
+                  onChange={(event) => this.handleChange(event)}
+                  value={this.state.priceHigh}
+                  placeholder="$1,000,000"
+                />
+              </div>
+              <div className="col-3 d-inline-block px-3">
+                <label for="location" class="form-label">
+                  City (Case Sensitive)
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  onChange={(event) => this.handleChange(event)}
+                  value={this.state.location}
+                  placeholder="San Diego"
+                />
+              </div>
+            </form>
+          </div>
+          <div className="row">
+            {this.state.filteredListings.map((i) => {
+              return (
+                <div className="col-4">
+                  <ListingCard key={i.id} listing={i} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </>
     );
   }
 }

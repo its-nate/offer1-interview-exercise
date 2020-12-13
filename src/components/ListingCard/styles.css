@@ -1,0 +1,46 @@
+.lc-property-info,
+.lc-address {
+  color: #597a96;
+  font-weight: 600;
+}
+
+.lc-address {
+    font-size: 0.9rem;
+}
+
+.lc-escrow-company {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: white;
+  text-shadow: 1px 1px #686868;
+}
+
+.lc-state-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: black;
+}
+
+.lc-img-container {
+  height: 250px;
+}
+
+.lc-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.lc-price {
+  color: #12aaeb;
+  font-weight: 800;
+}
