@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: []
+      listings: [],
     };
   }
 
@@ -23,9 +23,9 @@ class App extends React.Component {
   };
 
   getListing = (id) => {
-    for (let i = 0; i < this.state.listings; i++) {
-      if (this.state.listings[i].id === id) {
-        return this.state.listings[i].id;
+    for (let i = 0; i < this.state.listings.length; i++) {
+      if (this.state.listings[i].id === parseInt(id)) {
+        return this.state.listings[i];
       }
     }
   };
