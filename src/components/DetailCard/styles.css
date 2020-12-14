@@ -1,0 +1,48 @@
+.detail-img-row {
+  height: 500px;
+}
+
+.detail-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-address {
+  color: #597a96;
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.detail-description {
+  color: #93a7b0;
+}
+
+.detail-price {
+  font-family: Montserrat, sans-serif;
+  color: #93a7b0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.detail-price-number {
+  font-size: 2rem;
+  color: #12aaeb;
+}
+
+.detail-agent {
+  font-family: Montserrat, sans-serif;
+  color: #597a96;
+  font-weight: 600;
+}
+
+.detail-agent a {
+  color: #597a96;
+}
+
+.detail-listings-link {
+    color: #12aaeb;
+}
+
+.detail-listings-link:hover {
+    color: #12aaeb;
+}
