@@ -1,6 +1,7 @@
 import React from "react";
 import ListingCard from "../../components/ListingCard";
 import Header from "../../components/Header";
+import API from "../../utils/API";
 import "./styles.css";
 
 class AllListings extends React.Component {
@@ -15,8 +16,18 @@ class AllListings extends React.Component {
     };
   }
 
+  getListings = () => {
+    API.listings().then((res) => {
+      console.log(res);
+      this.setState({
+        listings: res.data,
+      });
+      this.filter();
+    });
+  };
+
   componentDidMount() {
-    setTimeout(() => this.filter(), 100);
+    this.getListings();
   }
 
   handleChange(event) {
@@ -24,7 +35,7 @@ class AllListings extends React.Component {
   }
 
   filter() {
-    let listings = this.props.listings;
+    let listings = this.state.listings;
     let { bedrooms, priceLow, priceHigh, location } = this.state;
     let filtered = [];
 

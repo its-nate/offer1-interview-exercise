@@ -1,7 +1,10 @@
-const Data = require('../homes.json');
+const axios = require("axios");
 
 module.exports = {
     listings: async () => {
-        return Data;
+        return axios.get("/api/listings");
+    },
+    listing: (id) => {
+        return axios.get(`/api/listings/${id}`)
     }
 };

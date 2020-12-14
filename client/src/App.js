@@ -16,10 +16,13 @@ class App extends React.Component {
 
   getListings = () => {
     API.listings().then((res) => {
+      // console.log(res);
       this.setState({
         listings: res,
       });
     });
+
+    // console.log(this.state);
   };
 
   getListing = (id) => {
@@ -33,6 +36,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getListings();
   }
+
 
   render() {
     return (
