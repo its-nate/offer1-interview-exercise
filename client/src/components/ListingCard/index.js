@@ -1,5 +1,5 @@
 import { Link, useRouteMatch } from "react-router-dom";
-import StateBadge from "../../components/StateBadge";
+import StateBadge from "../StateBadge";
 import currencyFormatter from "../../utils/currencyFormatter";
 import "./styles.css";
 
