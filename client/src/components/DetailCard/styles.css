@@ -46,3 +46,7 @@
 .detail-listings-link:hover {
     color: #12aaeb;
 }
+
+.social-btn {
+  width: 80px;
+}
