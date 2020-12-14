@@ -18,7 +18,6 @@ class AllListings extends React.Component {
 
   getListings = () => {
     API.listings().then((res) => {
-      console.log(res);
       this.setState({
         listings: res.data,
       });
