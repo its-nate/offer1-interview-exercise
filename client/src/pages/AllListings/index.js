@@ -44,7 +44,7 @@ class AllListings extends React.Component {
           (bedrooms ? listings[i].property.numberBedrooms >= bedrooms : true) &&
           (priceLow ? listings[i].price >= priceLow : true) &&
           (priceHigh ? listings[i].price <= priceHigh : true) &&
-          (location ? listings[i].property.address.city === location : true)
+          (location ? listings[i].property.address.city.toLowerCase() === location.toLowerCase() : true)
         ) {
           filtered.push(listings[i]);
         }
@@ -104,7 +104,7 @@ class AllListings extends React.Component {
               </div>
               <div className="col-3 d-inline-block px-3">
                 <label htmlFor="location" className="form-label">
-                  City (Case Sensitive)
+                  City
                 </label>
                 <input
                   name="location"
