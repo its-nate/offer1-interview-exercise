@@ -17,7 +17,6 @@ class DetailCard extends React.Component {
 
   async componentDidMount() {
     await API.listing(this.props.listingId).then((res) => {
-      console.log(res.data);
       this.setState({ loaded: true, listing: res.data });
     });
   }
@@ -49,7 +48,7 @@ class DetailCard extends React.Component {
                   </p>
                 </div>
                 <div className="col-12 col-lg-4">
-                  <div class="card mt-5">
+                  <div className="card mt-5">
                     <div className="row card-body text-center detail-card detail-price">
                       <div className="col-12">
                         <p className="">
@@ -75,7 +74,7 @@ class DetailCard extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div class="card mt-5">
+                  <div className="card mt-5">
                     <div className="row card-body text-center detail-card detail-agent">
                       <p className="text-uppercase">Contact Agent</p>
                       <div className="col-12">

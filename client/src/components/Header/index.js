@@ -4,8 +4,8 @@ import "./styles.css";
 const Header = () => {
   return (
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+      <nav className="navbar navbar-light bg-light">
+        <div className="container-fluid">
           <Link className="nav-img" to="/">
             <img
               src="/assets/offer1_logo.png"
@@ -15,14 +15,14 @@ const Header = () => {
             />
           </Link>
 
-          <form class="d-flex">
+          <form className="d-flex">
             <Link to="/">
-              <button class="btn me-2">
+              <button className="btn me-2">
                 Home
               </button>
             </Link>
             <Link to="/listings">
-              <button class="btn">
+              <button className="btn">
                 Listings
               </button>
             </Link>

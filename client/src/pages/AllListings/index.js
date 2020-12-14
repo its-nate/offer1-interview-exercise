@@ -64,12 +64,12 @@ class AllListings extends React.Component {
           <div className="row my-5">
             <form>
               <div className="col-3 d-inline-block px-3">
-                <label for="bedrooms" class="form-label">
+                <label for="bedrooms" className="form-label">
                   Bedrooms (Minimum)
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="bedrooms"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.bedrooms}
@@ -77,12 +77,12 @@ class AllListings extends React.Component {
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="priceLow" class="form-label">
+                <label for="priceLow" className="form-label">
                   Min Price
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="priceLow"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceLow}
@@ -90,12 +90,12 @@ class AllListings extends React.Component {
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="priceHigh" class="form-label">
+                <label for="priceHigh" className="form-label">
                   Max Price
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="priceHigh"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceHigh}
@@ -103,12 +103,12 @@ class AllListings extends React.Component {
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="location" class="form-label">
+                <label for="location" className="form-label">
                   City (Case Sensitive)
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="location"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.location}

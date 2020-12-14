@@ -14,7 +14,7 @@ const Home = () => {
           </div>
           <div className="col-12 d-flex justify-content-center align-items-start">
             <Link to="/listings">
-              <button class="btn">
+              <button className="btn">
                 Browse Listings
               </button>
             </Link>
