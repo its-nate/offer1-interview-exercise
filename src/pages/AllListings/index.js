@@ -76,7 +76,7 @@ class AllListings extends React.Component {
                   id="priceLow"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceLow}
-                  placeholder="$50,000"
+                  placeholder="$0"
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
@@ -89,7 +89,7 @@ class AllListings extends React.Component {
                   id="priceHigh"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceHigh}
-                  placeholder="$1,000,000"
+                  placeholder="$0"
                 />
               </div>
               <div className="col-3 d-inline-block px-3">

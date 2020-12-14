@@ -5,6 +5,8 @@ import "./styles.css";
 
 const formatter = currencyFormatter.format();
 
+// KNOWN BUG: refresh on detail page causes props to be undefined. data routing needs to be refactored.
+
 const DetailCard = (props) => {
   return (
     <>

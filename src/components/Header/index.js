@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 const Header = () => {
   return (
     <header>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <Link to="/">
+          <Link className="nav-img" to="/">
             <img
               src="/assets/offer1_logo.png"
               alt="Offer1"
-              width="40%"
+              width="100%"
               className="p-2"
             />
           </Link>
