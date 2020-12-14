@@ -12,10 +12,10 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/listings">
-          <AllListings listings={this.state.listings} />
+          <AllListings />
         </Route>
         <Route path="/listings/:id">
-          <ListingDetail getListing={this.getListing} />
+          <ListingDetail />
         </Route>
       </Switch>
     </Router>

@@ -10,7 +10,7 @@ const Home = () => {
       <div className="container">
         <div className="row home-row">
           <div className="col-12 d-flex justify-content-center align-items-end mb-5">
-            <img src="/assets/offer1_logo.png"></img>
+            <img src="/assets/offer1_logo.png" alt="Offer1"></img>
           </div>
           <div className="col-12 d-flex justify-content-center align-items-start">
             <Link to="/listings">

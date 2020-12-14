@@ -8,10 +8,10 @@ class AllListings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bedrooms: null,
-      priceLow: null,
-      priceHigh: null,
-      location: null,
+      bedrooms: undefined,
+      priceLow: undefined,
+      priceHigh: undefined,
+      location: undefined,
       filteredListings: [],
     };
   }
@@ -30,7 +30,7 @@ class AllListings extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value }, this.filter);
+    this.setState({ [event.target.name]: event.target.value }, this.filter);
   }
 
   filter() {
@@ -64,52 +64,52 @@ class AllListings extends React.Component {
           <div className="row my-5">
             <form>
               <div className="col-3 d-inline-block px-3">
-                <label for="bedrooms" className="form-label">
+                <label htmlFor="bedrooms" className="form-label">
                   Bedrooms (Minimum)
                 </label>
                 <input
+                  name="bedrooms"
                   type="text"
                   className="form-control"
-                  id="bedrooms"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.bedrooms}
                   placeholder="0"
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="priceLow" className="form-label">
+                <label htmlFor="priceLow" className="form-label">
                   Min Price
                 </label>
                 <input
+                  name="priceLow"
                   type="text"
                   className="form-control"
-                  id="priceLow"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceLow}
                   placeholder="$0"
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="priceHigh" className="form-label">
+                <label htmlFor="priceHigh" className="form-label">
                   Max Price
                 </label>
                 <input
+                  name="priceHigh"
                   type="text"
                   className="form-control"
-                  id="priceHigh"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.priceHigh}
                   placeholder="$0"
                 />
               </div>
               <div className="col-3 d-inline-block px-3">
-                <label for="location" className="form-label">
+                <label htmlFor="location" className="form-label">
                   City (Case Sensitive)
                 </label>
                 <input
+                  name="location"
                   type="text"
                   className="form-control"
-                  id="location"
                   onChange={(event) => this.handleChange(event)}
                   value={this.state.location}
                   placeholder="San Diego"
@@ -120,8 +120,8 @@ class AllListings extends React.Component {
           <div className="row">
             {this.state.filteredListings.map((i) => {
               return (
-                <div className="col-4">
-                  <ListingCard key={i.id} listing={i} />
+                <div className="col-4" key={i.id}>
+                  <ListingCard listing={i} />
                 </div>
               );
             })}

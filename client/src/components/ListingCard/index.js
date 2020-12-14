@@ -10,7 +10,7 @@ const ListingCard = (props) => {
 
   return (
     <Link to={`${url}/${props.listing.id}`}>
-      <div className="card" style={{ width: "18rem;" }}>
+      <div className="card">
         <div className="position-relative lc-img-container">
           <img
             src={props.listing.property.primaryImageUrl}
@@ -38,7 +38,7 @@ const ListingCard = (props) => {
             </p>
           </div>
           <p className="card-text lc-address">
-            {props.listing.property.address.addressLine1}, 
+            {props.listing.property.address.addressLine1},{" "}
             {props.listing.property.address.city},{" "}
             {props.listing.property.address.state}{" "}
             {props.listing.property.address.zip}
