@@ -5,10 +5,9 @@ import {
   FacebookShareButton,
   TwitterShareButton,
 } from "react-share";
-
-import API from "../../utils/API";
 import currencyFormatter from "../../utils/currencyFormatter";
 import "./styles.css";
+const API = require("../../utils/API");
 
 const formatter = currencyFormatter.format();
 

@@ -1,8 +1,8 @@
 import React from "react";
 import ListingCard from "../../components/ListingCard";
 import Header from "../../components/Header";
-import API from "../../utils/API";
 import "./styles.css";
+const API = require("../../utils/API");
 
 class AllListings extends React.Component {
   constructor(props) {
